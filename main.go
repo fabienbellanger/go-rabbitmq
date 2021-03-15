@@ -1,6 +1,8 @@
 package main
 
-import "rabbitmqtest/cmd"
+import (
+	"rabbitmqtest/cmd"
+)
 
 func main() {
 	cmd.Execute()
