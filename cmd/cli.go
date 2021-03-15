@@ -10,11 +10,8 @@ import (
 var rootCmd = &cobra.Command{
 	Use:   "RabbitMQ test",
 	Short: "RabbitMQ test",
-	Long:  `RabbitMQ test`,
-	Run: func(cmd *cobra.Command, args []string) {
-		// Do Stuff Here
-		println("In cmd...")
-	},
+	Long:  "RabbitMQ test",
+	Args:  cobra.MinimumNArgs(1),
 }
 
 func Execute() {
