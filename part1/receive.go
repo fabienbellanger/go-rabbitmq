@@ -3,6 +3,7 @@ package part1
 import (
 	"log"
 	"rabbitmqtest/utils"
+	"time"
 
 	"github.com/streadway/amqp"
 )
@@ -41,10 +42,15 @@ func Receive() {
 
 	go func() {
 		for d := range msgs {
-			log.Printf("Received a message: %s", d.Body)
+			go test(d.Body)
 		}
 	}()
 
 	log.Printf(" [*] Waiting for messages. To exit press CTRL+C")
 	<-forever
+}
+
+func test(b []byte) {
+	time.Sleep(2 * time.Second)
+	log.Printf("Received a message: %s", b)
 }
